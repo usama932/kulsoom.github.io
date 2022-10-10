@@ -85,6 +85,11 @@
                         </li>
                         {{--Tabulation Sheet--}}
                         @endif
+                        @if(auth()->user()->user_type == "teacher")
+                        <li class="nav-item">
+                            <a href="{{ route('quizzes.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['subjects.index','subjects.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Quizes</span></a>
+                        </li>
+                        @endif
                         @if(Qs::userIsTeamSAT())
                         {{--Marks Manage--}}
                         {{--Marksheet--}}
