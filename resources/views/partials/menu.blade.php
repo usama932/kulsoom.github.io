@@ -74,6 +74,27 @@
                 </li>
                 @endif
                 {{--Exam--}}
+                @if(auth()->user()->user_type == "student")
+                <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['exams.index', 'exams.edit', 'grades.index', 'grades.edit', 'marks.index', 'marks.manage', 'marks.bulk', 'marks.tabulation', 'marks.show', 'marks.batch_fix',]) ? 'nav-item-expanded nav-item-open' : '' }} ">
+                    <a href="#" class="nav-link"><i class="icon-books"></i> <span> Exams</span></a>
+                    <ul class="nav nav-group-sub" data-submenu-title="Manage Exams">
+                        @if(auth()->user()->user_type == "student")
+                        {{--Grades list--}}
+                        <li class="nav-item">
+                            <a href="{{ route('grades.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['grades.index', 'grades.edit']) ? 'active' : '' }}">Grades</a>
+                        </li>
+                        {{--Tabulation Sheet--}}
+                       
+                        
+                        <li class="nav-item">
+                            <a href="{{ route('takequiz.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['subjects.index','subjects.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Quizes</span></a>
+                        </li>
+                        @endif
+                        
+                    </ul>
+                </li>
+                @endif
+
                 @if(Qs::userIsTeamSAT())
                 <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['exams.index', 'exams.edit', 'grades.index', 'grades.edit', 'marks.index', 'marks.manage', 'marks.bulk', 'marks.tabulation', 'marks.show', 'marks.batch_fix',]) ? 'nav-item-expanded nav-item-open' : '' }} ">
                     <a href="#" class="nav-link"><i class="icon-books"></i> <span> Exams</span></a>

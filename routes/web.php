@@ -16,6 +16,7 @@ use App\Http\Controllers\TransportController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\StudentClassController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\takequizController;
 use App\Http\Controllers\FeesController;
 
 
@@ -203,6 +204,11 @@ Route::group(['namespace' => 'SupportTeam',], function () {
  Route::match(['get','post'],'student/attendance','AttendanceController@student_attendance')->name('student_attendance.create');
  Route::post('student/attendance/save', 'AttendanceController@student_attendance_save')->name('student_attendance.create');
  Route::resource('quizzes','QuizController');
+ Route::resource('takequiz','takequizController');
+ Route::get('/taketest', [takequizController::class, 'taketest'])->name('taketest');
+ 
+ Route::post('/posttest', [takequizController::class, 'posttest'])->name('posttest');
+ Route::get('/getresult', [takequizController::class, 'getresult'])->name('getresult');
 /************************ SUPER ADMIN ****************************/
 Route::group(['namespace' => 'SuperAdmin', 'middleware' => 'super_admin', 'prefix' => 'super_admin'], function () {
 
