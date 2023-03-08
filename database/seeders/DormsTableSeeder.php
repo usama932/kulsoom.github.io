@@ -15,11 +15,9 @@ class DormsTableSeeder extends Seeder
     {
         DB::table('dorms')->delete();
         $data = [
-            ['name' => 'Faith Hostel'],
-            ['name' => 'Peace Hostel'],
-            ['name' => 'Grace Hostel'],
-            ['name' => 'Success Hostel'],
-            ['name' => 'Trust Hostel'],
+            ['name' => '20HC Hostel'],
+            ['name' => 'New_City Hostel'],
+            ['name' => 'Officer Colony Hostel'],
         ];
         DB::table('dorms')->insert($data);
     }
