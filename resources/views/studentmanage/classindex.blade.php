@@ -12,6 +12,7 @@
         <ul class="nav nav-tabs nav-tabs-highlight">
             <li class="nav-item dropdown"><a href="#all-publisher" class="nav-link dropdown-toggle active" data-toggle="tab">Manage Student</a></li>
             <li class="nav-item"><a href="#new-user" class="nav-link" data-toggle="tab">Add Student Class</a></li>
+             <li class="nav-item"><a href="#new-student" class="nav-link" data-toggle="tab">Add Student </a></li>
         </ul>
 
         <div class="tab-content">
@@ -56,7 +57,84 @@
                     </fieldset>
                 </form>
             </div>
-        
+            <div class="tab-pane fade" id="new-student">
+                <form method="post" enctype="multipart/form-data" action="{{ route('admission') }}">
+                    @csrf
+                     <h6>Student  Info:</h6>
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputName">Student Name</label>
+                                <input class="form-control" id="exampleInputName" name="stname" placeholder="Enter Student Name" type="text" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Email Address</label>
+                                <input class="form-control" id="exampleInputEmail1"name="email" placeholder="Enter Email" type="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputNumber">Phone Number</label>
+                                <input class="form-control" id="exampleInputNumber" name="phone" placeholder="Enter Number" type="text" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputState">Class</label>
+                                <select class="form-control" id="inputState" name="class">
+                                    <option selected>Class for admission..</option>
+                                    <option value="Nursery">Nursery</option>
+                                    <option value="Junior">Junior</option>
+                                    <option value="Senior">Senior</option>
+                                    <option value="Class One">Class One</option>
+                                    <option value="Class Two">Class Two</option>
+                                    <option value="Class Three">Class Three</option>
+                                    <option value="Class Four">Class Four</option>
+                                    <option value="Class Five">Class Five</option>
+                                    <option value="Class Six">Class Six</option>
+                                    <option value="Class Seven">Class Seven</option>
+                                    <option value="Class Eight">Class Eight</option>
+                                    <option value="Class Nine">Class Nine</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInpufname">Father Name</label>
+                                <input class="form-control" id="exampleInputfname" name="father" placeholder="Enter Father Name" type="text" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputmname">Upload Picture</label>
+                                <input class="form-control" id="exampleInputmname" name="file" type="file" >
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInpuschool">Previous School</label>
+                                <input class="form-control" id="exampleInputschool" name="previoussch" placeholder="Previous School Name" type="text" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputmname">Left School Year</label>
+                                <select class="form-control" id="inputState" name="leftyear">
+                                    <option selected>Year</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                   
+                                </select>                
+                                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputMessage">Additional Information</label>
+                            <textarea class="form-control" name="info" id="exampleInputinfo" placeholder="Information"></textarea>
+                        </div>
+
+                       
+                        <button class="btn theme-orange border-0" type="submit">Submit Application</button>
+                    </form>
+            </div>
             <div class="tab-pane fade show active" id="all-publisher">
             @if(isset($error))
             <div class="row">
